@@ -1,12 +1,8 @@
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-//import java.net.DatagramPacket;
-//import java.net.DatagramSocket;
-//import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketException;
 
 public class tcp1ser {
 
@@ -25,7 +21,6 @@ public class tcp1ser {
 			acul = 0;
 			try {
 			while (true) {
-				try {
 				DataInputStream dis = new DataInputStream(saux.getInputStream());
 				String cadena = dis.readUTF();
 				String[] palabras = cadena.split(" ");
@@ -37,9 +32,6 @@ public class tcp1ser {
 				}
 				DataOutputStream dos = new DataOutputStream(saux.getOutputStream());
 				dos.writeInt(acul);
-				} catch(SocketException s) {
-					break;
-				}
 			}
 			} catch (IOException e) {
 				continue;
